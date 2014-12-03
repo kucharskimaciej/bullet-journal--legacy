@@ -10,7 +10,7 @@ ngmin = require 'gulp-ngmin'
 
 
 paths =
-  templatesSrc: 'static/src/**/*.jade'
+  templatesSrc: 'static/src/**/*.tpl.jade'
   appSrc: ['static/src/modules.coffee', 'static/src/**/*.coffee']
   libSrc: 'bower_components'
   dist: 'static/dist'
