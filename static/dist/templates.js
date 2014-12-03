@@ -1,0 +1,1 @@
+angular.module("templates").run(["$templateCache",function(t){t.put("posts/index/template.html",'<h1>index</h1><ul><li ng-repeat="post in posts">{{ post.title }}</li></ul>')}]);
