@@ -7,7 +7,7 @@ angular.module 'navigation'
     restrict: 'E'
     require: '^navigationBar'
     replace: yes
-    templateUrl: 'navigation/navigation_item_directive.tpl.html'
+    templateUrl: 'navigation/item_directive.tpl.html'
     controller: ($scope) ->
 
       $scope.onSelect = ($event, scope) ->

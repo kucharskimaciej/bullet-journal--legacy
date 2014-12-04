@@ -1,6 +1,6 @@
 angular.module('navigation')
    .run ($rootScope) ->
-      $rootScope.navigationItems = [
+      $rootScope.mainNavigationItems = [
           name: 'Add Post',
           icon: 'plus'
           sref: 'posts.new'

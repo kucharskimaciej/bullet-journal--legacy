@@ -4,4 +4,4 @@ angular.module 'navigation'
       items: '='
     restrict: 'E'
     replace: yes
-    templateUrl: 'navigation/navigation_bar_directive.tpl.html'
+    templateUrl: 'navigation/navbar_directive.tpl.html'
