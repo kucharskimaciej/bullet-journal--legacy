@@ -1,9 +1,7 @@
 html(ng-app='app')
     head
     body
-        aside(
-            ng-controller='NavigationController'
-        )
+        aside
             navigation-bar(items='navigationItems')
         ui-view
         script(src='/dist/libs.js')
