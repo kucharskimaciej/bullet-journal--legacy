@@ -1,16 +1,19 @@
 app = angular.module('app')
 
 app.config ($stateProvider, $urlRouterProvider) ->
-  $urlRouterProvider.otherwise('/')
+
 
   $stateProvider
     .state 'posts',
       url: '/'
       templateUrl: 'posts/index/template.tpl.html'
       controller: 'PostsIndexController'
-      controllerAs: 'ctrl'
 
-    .state 'posts.new',
-      url: 'posts/new'
+    .state 'postsNew',
+      url: '/posts/new'
+      templateUrl: 'posts/new/template.tpl.html'
+      controller: 'PostsNewController'
+
+  $urlRouterProvider.otherwise('/')
 
   return

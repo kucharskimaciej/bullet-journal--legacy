@@ -1,5 +1,6 @@
 angular.module('templates', [])
 angular.module('navigation', [])
+angular.module('ui.form', [])
 angular.module('common.models.post', ['restangular'])
 angular.module('posts', ['common.models.post'])
 
@@ -9,4 +10,5 @@ angular.module 'app', [
   'templates'
   'navigation'
   'posts'
+  'ui.form'
 ]
