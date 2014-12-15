@@ -1,0 +1,21 @@
+ng-switch(on='type')
+    div.field(ng-switch-when='text')
+        label {{ label }}
+        input(
+            type='{{ type }}'
+            ng-model='model'
+            )
+
+    div.field(ng-switch-when='textarea')
+        label {{ label }}
+        textarea(ng-model='model')
+
+    div.field(ng-switch-when='select')
+        label {{ label }}
+        div.ui.selection.dropdown
+            div.default-text Hi!
+            input(type='hidden' ng-model='model')
+            i.dropdown-icon
+            div.menu
+                div.item(data-value='option' ng-repeat='option in options')
+                    | {{ option }}
