@@ -1,15 +1,14 @@
 angular.module 'navigation'
-  .directive 'navigationItem', ->
+.directive 'navigationItem', ->
     scope:
-      title: '@'
-      icon: '@'
-      state: '@'
+        title: '@'
+        icon: '@'
+        state: '@'
     restrict: 'E'
     require: '^navigationBar'
     replace: yes
     templateUrl: 'navigation/item_directive.tpl.html'
     controller: ($scope) ->
-
-      $scope.onSelect = ($event, scope) ->
-        $scope.emit 'menu:item:selected', scope
-        $event.preventDefault()
+        $scope.onSelect = ($event, scope) ->
+            $scope.emit 'menu:item:selected', scope
+            $event.preventDefault()

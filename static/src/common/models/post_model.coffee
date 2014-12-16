@@ -1,14 +1,14 @@
 angular.module 'common.models.post'
-  .provider 'Post', ->
+.provider 'Post', ->
     configFn = (configurer) ->
-      configurer.addElementTransformer 'posts', false, (post) ->
-        post.created_at = new Date(post.created_at)
+        configurer.addElementTransformer 'posts', false, (post) ->
+            post.created_at = new Date(post.created_at)
 
-        post
+            post
 
 
     @$get = (Restangular) ->
-      Restangular.withConfig configFn
+        Restangular.withConfig configFn
         .service 'posts'
 
 

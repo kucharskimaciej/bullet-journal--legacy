@@ -1,7 +1,7 @@
 angular.module 'navigation'
-  .directive 'navigationBar', ->
+.directive 'navigationBar', ->
     scope:
-      items: '='
+        items: '='
     restrict: 'E'
     replace: yes
     templateUrl: 'navigation/navbar_directive.tpl.html'

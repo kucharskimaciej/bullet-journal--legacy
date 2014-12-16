@@ -1,4 +1,4 @@
 angular.module('posts')
-  .controller 'PostsIndexController', ($scope, Post) ->
+.controller 'PostsIndexController', ($scope, Post) ->
     Post.getList().then (posts) ->
-      $scope.posts = posts
+        $scope.posts = posts
