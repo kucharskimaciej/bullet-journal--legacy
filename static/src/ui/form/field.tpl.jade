@@ -1,17 +1,14 @@
 ng-switch(on='type')
     div.field(ng-switch-when='text')
-        label {{ label }}
-        input(
-        type='{{ type }}'
-        ng-model='model'
-        )
+        label(ng-if='label') {{ label }}
+        input(type='{{ type }}' ng-model='model')
 
     div.field(ng-switch-when='textarea')
-        label {{ label }}
+        label(ng-if='label') {{ label }}
         textarea(ng-model='model')
 
     div.field(ng-switch-when='select')
-        label {{ label }}
+        label(ng-if='label') {{ label }}
         div.ui.selection.dropdown
             div.default-text Hi!
             input(type='hidden' ng-model='model')

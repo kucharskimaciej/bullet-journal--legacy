@@ -11,8 +11,13 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
     .state 'postsNew',
       url: '/posts/new'
-      templateUrl: 'posts/new/template.tpl.html'
-      controller: 'PostsNewController'
+      templateUrl: 'posts/create_update/template.tpl.html'
+      controller: 'PostsCreateUpdateController'
+
+    .state 'postsEdit',
+      url: '/posts/:postID/edit'
+      templateUrl: 'posts/create_update/template.tpl.html'
+      controller: 'PostsCreateUpdateController'
 
   $urlRouterProvider.otherwise('/')
 
