@@ -5,11 +5,8 @@ angular.module('posts')
     else
         $scope.post = {}
 
-    $scope.post =
-        title: 'HI'
 
     $scope.onSubmit = (isValid, data) ->
-        console.log(isValid, data, $scope.post)
         if isValid
             Post.post(data).then ->
                 $scope.post = {}

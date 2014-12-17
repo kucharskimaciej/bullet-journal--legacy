@@ -3,7 +3,6 @@ angular.module 'ui.form'
     scope:
         label: '@?'
         type: '@'
-        field: '@'
         model: '='
     restrict: 'E'
     require: '^ngForm'
