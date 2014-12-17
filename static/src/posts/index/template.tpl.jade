@@ -1,6 +1,10 @@
 h1 index
-ul
-    li(ng-repeat='post in posts')
-        | {{ post.title }}
-        a(ui-sref='postsEdit({ postID: post._id })') edit
-        a(ng-click='deletePost(post._id)') delete
+section.posts(ng-if='posts.length')
+    ul
+        li(ng-repeat='post in posts')
+            | {{ post.title }}
+            a(ui-sref='postsEdit({ postID: post._id })') edit
+            a(ng-click='deletePost(post._id)') delete
+
+section.posts(ng-if='!posts.length')
+    h2 No posts yet :(
