@@ -1,9 +1,7 @@
 angular.module('posts')
 .controller 'PostsCreateUpdateController', ($scope, $stateParams, Post) ->
-
     if $stateParams.postID
-        Post.one($stateParams.postID).get().then (post) ->
-            $scope.post = post
+        $scope.post = Post.one($stateParams.postID).get().$object
     else
         $scope.post = {}
 

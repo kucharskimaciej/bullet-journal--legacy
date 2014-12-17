@@ -1,5 +1,7 @@
 angular.module('posts')
 .controller 'PostsIndexController', ($scope, Post) ->
-    Post.getList().then (posts) ->
-        $scope.posts = posts
-        console.log($scope.posts)
+    $scope.posts = Post.getList().$object
+    $scope.deletePost = (id) ->
+        $scope.posts = $scope.posts.filter (post) -> post._id isnt id
+
+        Post.one(id).remove()

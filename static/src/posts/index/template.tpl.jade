@@ -3,3 +3,4 @@ ul
     li(ng-repeat='post in posts')
         | {{ post.title }}
         a(ui-sref='postsEdit({ postID: post._id })') edit
+        a(ng-click='deletePost(post._id)') delete
