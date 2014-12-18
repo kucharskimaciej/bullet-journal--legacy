@@ -1,0 +1,6 @@
+article
+   h2 {{ post.title }}
+   aside {{ post.created_at | date }}
+   div(ng-bind-html="post.content | rawHtml")
+
+

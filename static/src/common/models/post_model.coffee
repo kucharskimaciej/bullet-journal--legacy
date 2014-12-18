@@ -1,9 +1,8 @@
 angular.module 'common.models.post'
-.provider 'Post', ->
+.provider 'Post', ($sceProvider) ->
     configFn = (configurer) ->
         configurer.addElementTransformer 'posts', false, (post) ->
             post.created_at = new Date(post.created_at)
-
             post
 
 
