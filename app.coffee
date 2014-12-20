@@ -1,5 +1,6 @@
 express = require 'express'
 methodOverride = require 'method-override'
+expressLess = require 'express-less'
 app = express()
 
 allowCrossDomain = (req, res, next) ->
@@ -16,6 +17,7 @@ app.use methodOverride()
 app.use allowCrossDomain
 app.use express.static('static')
 app.use express.static('bower_components')
+app.use '/dist', expressLess('static/less')
 
 app.get '/', allowCrossDomain, (req, res) ->
   res.render('index')
