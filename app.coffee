@@ -17,7 +17,7 @@ app.use methodOverride()
 app.use allowCrossDomain
 app.use express.static('static')
 app.use express.static('bower_components')
-app.use '/dist', expressLess('static/less')
+app.use '/dist', expressLess('static/less', debug: true)
 
 app.get '/', allowCrossDomain, (req, res) ->
   res.render('index')
