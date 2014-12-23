@@ -11,3 +11,5 @@ angular.module 'ui.form'
     controller: ($scope, $attrs) ->
         if $scope.type is 'select' and $attrs.options
             $scope.options = $scope.$parent.$eval($attrs.options)
+            $scope.toggle = (state) -> $scope.model = state
+

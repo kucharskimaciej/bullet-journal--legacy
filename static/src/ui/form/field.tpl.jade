@@ -1,18 +1,21 @@
 ng-switch(on='type')
-    div.field(ng-switch-when='text')
+    div.form-group(ng-switch-when='text')
         label(ng-if='label') {{ label }}
-        input(type='{{ type }}' ng-model="$parent.model")
+        input(type='{{ type }}' ng-model="$parent.model" class="form-control")
 
     div.field(ng-switch-when='textarea')
         label(ng-if='label') {{ label }}
-        textarea(ng-model='$parent.model')
+        textarea(ng-model='$parent.model' class="form-control")
 
     div.field(ng-switch-when='select')
         label(ng-if='label') {{ label }}
-        div.ui.selection.dropdown
-            div.default-text Hi!
+
+        .btn-group(dropdown='' on-toggle='toggled(open)')
+            button.btn.btn-primary.dropdown-toggle(type='button' dropdown-toggle='')
+                | {{ $parent.model  || 'Default' }}
+                span.caret
+            ul.dropdown-menu(role='menu')
+                li(ng-repeat='option in options')
+                    a(ng-click='toggle(option)') {{ option }}
+
             input(type='hidden' ng-model='$parent.model')
-            i.dropdown-icon
-            div.menu
-                div.item(data-value='option' ng-repeat='option in options')
-                    | {{ option }}
