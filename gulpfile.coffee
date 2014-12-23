@@ -15,6 +15,7 @@ paths =
   templatesSrc: 'static/src/**/*.tpl.jade'
   appSrc: ['static/src/modules.coffee', 'static/src/**/*.coffee']
   libSrc: 'bower_components'
+  semanticSrc: 'static/less/semantic/import.less'
   lessSrc: 'static/less/*.less'
   dist: 'static/dist'
 
@@ -45,10 +46,7 @@ gulp.task 'build-src', ->
     .pipe sourcemaps.write()
     .pipe gulp.dest paths.dist
 
-gulp.task 'build-less', ->
-  gulp.src paths.lessSrc
-    .pipe less plugins: [new LessCleanCss(advanced: yes)]
-    .pipe gulp.dest paths.dist
+
 
 gulp.task 'watch', ->
   gulp.watch paths.templatesSrc, ['compile-templates']
