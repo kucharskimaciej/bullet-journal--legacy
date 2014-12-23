@@ -52,6 +52,5 @@ gulp.task 'watch', ->
   gulp.watch paths.templatesSrc, ['compile-templates']
   gulp.watch paths.libSrc, ['build-libs']
   gulp.watch paths.appSrc, ['build-src']
-  gulp.watch paths.lessSrc, ['build-less']
 
-gulp.task 'build', ['build-libs', 'compile-templates', 'build-src', 'build-less']
+gulp.task 'build', ['build-libs', 'compile-templates', 'build-src']
