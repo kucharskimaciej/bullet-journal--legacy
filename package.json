@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.coffee",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "coffee app.coffee"
+    "start": "coffee app.coffee & gulp watch",
+    "build": "gulp build",
+    "postinstall": "bundle install && bower install && gulp build"
   },
   "author": "",
   "license": "ISC",
