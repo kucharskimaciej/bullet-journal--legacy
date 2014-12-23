@@ -14,8 +14,6 @@ paths =
   templatesSrc: 'static/src/**/*.tpl.jade'
   appSrc: ['static/src/modules.coffee', 'static/src/**/*.coffee']
   libSrc: 'bower_components'
-  semanticSrc: 'static/less/semantic/import.less'
-  lessSrc: 'static/less/*.less'
   dist: 'static/dist'
 
 gulp.task 'compile-templates', ->
