@@ -7,8 +7,7 @@ sourcemaps = require 'gulp-sourcemaps'
 bowerFiles = require 'main-bower-files'
 uglify = require 'gulp-uglify'
 ngmin = require 'gulp-ngmin'
-less = require 'gulp-less'
-LessCleanCss = require 'less-plugin-clean-css'
+
 
 
 paths =
