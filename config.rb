@@ -9,8 +9,8 @@ fonts_dir   = "fonts"
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 
-line_comments = false
-output_style = :compressed
+line_comments = true
+output_style = :expanded
 cache = false
 relative_assets = true
 preferred_syntax = :sass

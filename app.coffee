@@ -15,7 +15,7 @@ app.set "views", __dirname + "/views"
 app.set "view engine", "jade"
 app.use methodOverride()
 app.use allowCrossDomain
-app.use compass( config_file: '../config.rb', project: 'static' )
+app.use compass( config_file: '../config.rb', project: 'static', cache: no )
 app.use express.static('static')
 app.use express.static('bower_components')
 

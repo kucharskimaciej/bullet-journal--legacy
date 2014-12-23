@@ -12,5 +12,5 @@ angular.module 'app', [
   'navigation'
   'posts'
   'ui.form'
-  'ui'
+  'ui.bootstrap'
 ]
