@@ -1,6 +1,6 @@
 require 'bootstrap-sass'
 require 'sass-globbing'
-
+require 'font-awesome-sass'
 
 css_dir     = "dist"
 sass_dir    = "sass"
