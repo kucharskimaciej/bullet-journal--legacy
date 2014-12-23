@@ -1,4 +1,6 @@
 require 'bootstrap-sass'
+require 'sass-globbing'
+
 
 css_dir     = "dist"
 sass_dir    = "sass"
