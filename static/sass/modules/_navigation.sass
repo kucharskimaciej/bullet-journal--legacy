@@ -12,7 +12,8 @@
   display: block
   width: $navigation-width
 
-  background-color: $gray-darker
+  background-color: $navigation-bg
+  +box-shadow(2px 0 0 0 rgba($secondary, 0.5))
 
 
 .Navigation-helper
@@ -29,10 +30,16 @@
   display: block
   width: 100%
 
-  text-align: center
   padding: 50% 0
   margin-bottom: rem(5px)
 
+
+  text-align: center
+  color: $navigation-link-color
+
+  &:hover
+    background-color: $navigation-hover-bg
+    color: $navigation-hover-color
   .fa
     line-height: 0
 

@@ -6,6 +6,6 @@ angular.module('navigation')
         sref: 'postsNew'
     ,
         name: 'Home',
-        icon: 'align-justify'
+        icon: 'bars'
         sref: 'posts'
     ]
