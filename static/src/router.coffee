@@ -9,15 +9,20 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'posts/index/template.tpl.html'
       controller: 'PostsIndexController'
 
-    .state 'postsNew',
-      url: '/posts/new'
-      templateUrl: 'posts/create_update/template.tpl.html'
-      controller: 'PostsCreateUpdateController'
+    .state 'writing',
+      url: '/posts',
+      abstract: yes,
+      templateUrl: 'posts/writing/view.tpl.html'
 
-    .state 'postsEdit',
-      url: '/posts/:postID/edit'
-      templateUrl: 'posts/create_update/template.tpl.html'
-      controller: 'PostsCreateUpdateController'
+    .state 'writing.new',
+      url: '/new'
+      templateUrl: 'posts/writing/template.tpl.html'
+      controller: 'PostsWritingController'
+
+    .state 'writing.edit',
+      url: '/:postID/edit'
+      templateUrl: 'posts/writing/template.tpl.html'
+      controller: 'PostsWritingController'
 
   $urlRouterProvider.otherwise('/')
 

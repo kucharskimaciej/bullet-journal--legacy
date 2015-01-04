@@ -3,7 +3,7 @@ angular.module('navigation')
     $rootScope.mainNavigationItems = [
         name: 'Add Post',
         icon: 'plus'
-        sref: 'postsNew'
+        sref: 'writing.new'
     ,
         name: 'Home',
         icon: 'bars'

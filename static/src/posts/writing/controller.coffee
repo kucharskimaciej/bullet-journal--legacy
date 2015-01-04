@@ -1,5 +1,5 @@
 angular.module('posts')
-.controller 'PostsCreateUpdateController', ($scope, $stateParams, Post) ->
+.controller 'PostsWritingController', ($scope, $stateParams, Post) ->
     if $stateParams.postID
         $scope.post = Post.one($stateParams.postID).get().$object
     else
