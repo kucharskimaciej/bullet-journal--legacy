@@ -4,22 +4,27 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
 
   $stateProvider
-    .state 'posts',
+    .state 'bullet',
+      url: '',
+      abstract: yes
+      templateUrl: 'layout/layout.tpl.html'
+
+    .state 'bullet.index',
       url: '/'
       templateUrl: 'posts/index/template.tpl.html'
       controller: 'PostsIndexController'
 
-    .state 'writing',
+    .state 'bullet.writing',
       url: '/posts',
       abstract: yes,
       templateUrl: 'posts/writing/view.tpl.html'
 
-    .state 'writing.new',
+    .state 'bullet.writing.new',
       url: '/new'
       templateUrl: 'posts/writing/template.tpl.html'
       controller: 'PostsWritingController'
 
-    .state 'writing.edit',
+    .state 'bullet.writing.edit',
       url: '/:postID/edit'
       templateUrl: 'posts/writing/template.tpl.html'
       controller: 'PostsWritingController'
