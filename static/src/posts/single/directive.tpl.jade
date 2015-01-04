@@ -2,5 +2,6 @@ article
    h2 {{ post.title }}
    aside {{ post.created_at }}
    div(ng-bind-html="post.content | rawHtml")
+   a(ui-sref='bullet.writing.edit({ postID: post._id })') edit
 
 

@@ -17,17 +17,18 @@ app.config ($stateProvider, $urlRouterProvider) ->
     .state 'bullet.writing',
       url: '/posts',
       abstract: yes,
-      templateUrl: 'posts/writing/view.tpl.html'
+      templateUrl: 'posts/writing/layout.tpl.html'
+      controller: 'PostsWritingController'
 
     .state 'bullet.writing.new',
       url: '/new'
       templateUrl: 'posts/writing/template.tpl.html'
-      controller: 'PostsWritingController'
+
 
     .state 'bullet.writing.edit',
       url: '/:postID/edit'
       templateUrl: 'posts/writing/template.tpl.html'
-      controller: 'PostsWritingController'
+
 
   $urlRouterProvider.otherwise('/')
 

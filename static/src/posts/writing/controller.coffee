@@ -1,7 +1,10 @@
 angular.module('posts')
-.controller 'PostsWritingController', ($scope, $stateParams, Post) ->
-    if $stateParams.postID
-        $scope.post = Post.one($stateParams.postID).get().$object
+.controller 'PostsWritingController', ($scope, $stateParams, $state, Post) ->
+
+    console.log($stateParams, $state)
+
+    if $state.params.postID
+        $scope.post = Post.one($state.params.postID).get().$object
     else
         $scope.post = {}
 

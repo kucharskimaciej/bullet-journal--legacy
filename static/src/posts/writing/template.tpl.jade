@@ -5,6 +5,5 @@ form(   name='newPostForm'
 
     ui-form-field(type='select' model='post.type' label='Type' options='["regular", "daily"]')
     ui-form-field(type='text' label='Post title' model='post.title')
-    p {{ post.title }}
     ui-form-field(type='textarea' model='post.original_content')
     button(type='submit') submit

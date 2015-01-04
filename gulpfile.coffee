@@ -21,8 +21,8 @@ gulp.task 'compile-templates', ->
     .pipe jade()
     .pipe html2js moduleName: 'templates', declareModule: no
     .pipe concat('templates.js')
-    .pipe ngmin()
-    .pipe uglify()
+    #.pipe ngmin()
+    #.pipe uglify()
     .pipe gulp.dest paths.dist
 
 gulp.task 'build-libs', ->
@@ -38,9 +38,9 @@ gulp.task 'build-src', ->
     .pipe sourcemaps.init()
     .pipe coffee(bare: yes)
     .pipe concat('app.js')
-    .pipe ngmin()
-    .pipe uglify()
-    .pipe sourcemaps.write()
+    #.pipe ngmin()
+    #.pipe uglify()
+    #.pipe sourcemaps.write()
     .pipe gulp.dest paths.dist
 
 
