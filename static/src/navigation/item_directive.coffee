@@ -8,7 +8,3 @@ angular.module 'navigation'
     require: '^navigationBar'
     replace: yes
     templateUrl: 'navigation/item_directive.tpl.html'
-    controller: ($scope) ->
-        $scope.onSelect = ($event, scope) ->
-            $scope.emit 'menu:item:selected', scope
-            $event.preventDefault()
