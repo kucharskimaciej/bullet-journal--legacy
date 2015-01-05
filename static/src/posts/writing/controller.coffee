@@ -1,5 +1,5 @@
 angular.module('posts')
 .controller 'PostsWritingController', (PostModelProvider) ->
-    @data = PostModelProvider.data
+    @data = PostModelProvider.vm
 
     return

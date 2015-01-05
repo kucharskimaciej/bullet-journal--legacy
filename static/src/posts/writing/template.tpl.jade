@@ -1,6 +1,6 @@
 h1 add new post
 form(   name='newPostForm'
-        ng-submit='ctrl.onSubmit(newPostForm.$valid, data.post)'
+        ng-submit='ctrl.onSubmit(newPostForm.$valid, ctrl.data.post)'
         novalidate )
 
     ui-form-field(type='select' model='ctrl.data.post.type' label='Type' options='["regular", "daily"]')

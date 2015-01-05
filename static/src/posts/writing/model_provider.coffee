@@ -1,18 +1,15 @@
 angular.module('posts')
-.factory 'PostModelProvider', (Post, $state) ->
+.service 'PostModelProvider', (Post, $state) ->
+    vm = @
 
-    data = {}
-
-    onSubmit = (isValid, data) ->
-        if isValid
-            Post.post(data).then ->
-                $state.go('bullet.index')
+    afterSubmit = ->
+        #$state.go 'bullet.index'
 
     get = ->
         if $state.params.postID
-            data.post = Post.one($state.params.postID).get().$object
+            Post.one($state.params.postID).get().then (post) ->
+                vm.post = post
         else
-            data.post = {}
+            vm.post = Post.one()
 
-
-    { onSubmit, get, data }
+    { afterSubmit, get, vm }
