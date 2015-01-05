@@ -7,5 +7,6 @@ angular.module('posts')
     @data = PostModelProvider.data
     @onSubmit = PostModelProvider.onSubmit
 
+    return
 
 

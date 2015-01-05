@@ -2,6 +2,7 @@ h1 add new post
 form(   name='newPostForm'
         ng-submit='ctrl.onSubmit(newPostForm.$valid, data.post)'
         novalidate )
+
     ui-form-field(type='select' model='ctrl.data.post.type' label='Type' options='["regular", "daily"]')
     ui-form-field(type='text' label='Post title' model='ctrl.data.post.title')
     ui-form-field(type='textarea' model='ctrl.data.post.original_content')

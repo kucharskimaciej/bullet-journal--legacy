@@ -1,5 +1,5 @@
 angular.module('posts')
-.controller 'PostsWritingController', ($scope, PostModelProvider) ->
+.controller 'PostsWritingController', (PostModelProvider) ->
+    @data = PostModelProvider.data
 
-
-
+    return

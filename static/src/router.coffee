@@ -18,7 +18,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
       url: '/posts',
       abstract: yes,
       templateUrl: 'posts/writing/layout.tpl.html'
-
+      controller: 'PostsWritingController as writing'
 
     .state 'bullet.writing.new',
       url: '/new'
