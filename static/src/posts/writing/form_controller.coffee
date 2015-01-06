@@ -8,9 +8,6 @@ angular.module('posts')
     @onSubmit = (isValid, data) =>
         PostModelProvider.save() if isValid
 
-
-
-
     return
 
 

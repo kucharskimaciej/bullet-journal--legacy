@@ -12,7 +12,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
     .state 'bullet.index',
       url: '/'
       templateUrl: 'posts/index/template.tpl.html'
-      controller: 'PostsIndexController'
+      controller: 'PostsIndexController as ctrl'
 
     .state 'bullet.writing',
       url: '/posts',
