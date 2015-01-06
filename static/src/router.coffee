@@ -30,6 +30,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'posts/writing/template.tpl.html'
       controller: 'PostsWritingFormController as ctrl'
 
+
   $urlRouterProvider.otherwise('/')
 
   return

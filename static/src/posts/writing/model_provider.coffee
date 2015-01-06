@@ -1,15 +1,19 @@
 angular.module('posts')
-.service 'PostModelProvider', (Post, $state) ->
+.service 'PostModelProvider', (Post, $state, Restangular) ->
     vm = @
 
-    afterSubmit = ->
+    afterSubmit = () ->
         #$state.go 'bullet.index'
 
-    get = ->
+    vm.get = ->
         if $state.params.postID
-            Post.one($state.params.postID).get().then (post) ->
+            Restangular.one('posts', $state.params.postID).get().then (post) ->
                 vm.post = post
         else
             vm.post = Post.one()
 
-    { afterSubmit, get, vm }
+    vm.save = ->
+        vm.post.put()
+            .then (post) -> angular.extend(vm.post, post)
+
+    return

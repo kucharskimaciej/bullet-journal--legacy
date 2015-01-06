@@ -4,9 +4,10 @@ angular.module('posts')
 
     PostModelProvider.get()
 
-    @vm = PostModelProvider.vm
+    @vm = PostModelProvider
     @onSubmit = (isValid, data) =>
-        @vm.post.save() if isValid
+        PostModelProvider.save() if isValid
+
 
 
 
