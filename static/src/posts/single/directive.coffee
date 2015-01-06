@@ -5,5 +5,7 @@ angular.module('posts')
     restrict: 'E'
     replace: yes
     templateUrl: 'posts/single/directive.tpl.html'
+    controller: (Posts, $scope) ->
+        $scope.remove = -> Posts.remove($scope.post)
 
 

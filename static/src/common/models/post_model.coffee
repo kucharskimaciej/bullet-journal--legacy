@@ -1,9 +1,9 @@
 angular.module 'common.models.post'
 .provider 'Post', ->
     configFn = (cfg) ->
-        cfg.addElementTransformer 'posts', false, (post) ->
-            post.created_at = new Date(post.created_at)
-            post
+#        cfg.addElementTransformer 'posts', false, (post) ->
+#            post.created_at = new Date(post.created_at)
+#            post
 
     @$get = (Restangular) ->
         Restangular.withConfig configFn
@@ -29,13 +29,20 @@ angular.module 'common.models.post'
         for post in $collection.models
             return post if post._id is id
 
-    one = ->
-        Post.one()
+    one = -> {}
 
     save = (model) ->
         model.save().then (post) ->
             unless model.fromServer
-                $collection.models.push(model)
+                angular.extend(model, post)
+                console.log(model, post)
+                $collection.models.unshift(model)
             post
 
-    { $collection, fetch, get, one, save }
+    remove = (model) ->
+        model.remove().then ->
+            idx = $collection.models.indexOf(model)
+            if idx >= 0
+                $collection.models.splice(idx, 1)
+
+    { $collection, fetch, get, one, save, remove }
