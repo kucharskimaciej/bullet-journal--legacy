@@ -1,9 +1,13 @@
 angular.module 'common.models.post'
 .provider 'Post', ->
     configFn = (cfg) ->
-#        cfg.addElementTransformer 'posts', false, (post) ->
-#            post.created_at = new Date(post.created_at)
-#            post
+        cfg.addElementTransformer 'posts', false, (post) ->
+            post.created_at = new Date(post.created_at)
+            post
+
+        cfg.addRequestInterceptor (post, operation) ->
+            delete post.created_at if operation is 'post' or 'put'
+            post
 
     @$get = (Restangular) ->
         Restangular.withConfig configFn
@@ -29,7 +33,7 @@ angular.module 'common.models.post'
         for post in $collection.models
             return post if post._id is id
 
-    one = -> {}
+    one = -> Post.one()
 
     save = (model) ->
         model.save().then (post) ->
