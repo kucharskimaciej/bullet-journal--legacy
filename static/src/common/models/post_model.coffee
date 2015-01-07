@@ -6,13 +6,17 @@ angular.module 'common.models.post'
             post
 
         cfg.addRequestInterceptor (post, operation) ->
-            delete post.created_at if operation is 'post' or 'put'
+            delete post.created_at if operation in ['post', 'put']
             post
+
+        cfg.extendModel 'posts', (model) ->
+            model.isModel = yes
+
+            model
 
     @$get = (Restangular) ->
         Restangular.withConfig configFn
         .service 'posts'
-
 
     return
 
@@ -20,11 +24,13 @@ angular.module 'common.models.post'
     $collection = {}
 
     $collection.models = []
+    $collection.isNew = yes
 
     fetch = (opts = {}) ->
-        if not $collection.models.length or opts.reset
+        if $collection.isNew or opts.reset
             return Post.getList().then (posts) ->
                 $collection.models = posts
+                $collection.isNew = no
                 posts
 
         return $collection.models
@@ -33,15 +39,23 @@ angular.module 'common.models.post'
         for post in $collection.models
             return post if post._id is id
 
-    one = -> Post.one()
+    one = -> {}
+
 
     save = (model) ->
-        model.save().then (post) ->
-            unless model.fromServer
-                angular.extend(model, post)
-                console.log(model, post)
-                $collection.models.unshift(model)
+        console.log '2', model.original_content
+        promise = if model.isModel then model.save() else Post.post(model)
+
+        promise.then (post) ->
+            angular.extend model, post
             post
+
+        if not model.isModel
+            promise.then (post) ->
+                $collection.models.unshift post
+                post
+
+        promise
 
     remove = (model) ->
         model.remove().then ->

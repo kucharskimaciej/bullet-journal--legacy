@@ -16,9 +16,10 @@ angular.module('posts')
             vm.post = Posts.one()
 
     vm.save = ->
+        console.log('#1', vm.post.original_content)
         Posts.save(vm.post)
             .then (post) ->
                 vm.post.content = post.content
-            .then afterSubmit
+            #.then afterSubmit
 
     return
