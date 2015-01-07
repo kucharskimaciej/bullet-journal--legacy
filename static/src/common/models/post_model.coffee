@@ -43,7 +43,6 @@ angular.module 'common.models.post'
 
 
     save = (model) ->
-        console.log '2', model.original_content
         promise = if model.isModel then model.save() else Post.post(model)
 
         promise.then (post) ->
