@@ -1,8 +1,8 @@
 h1 index
-section.posts(ng-if='ctrl.vm.models.length')
+section.posts(ng-if='ctrl.vm.length')
     ul
-        li(ng-repeat='post in ctrl.vm.models')
+        li(ng-repeat='post in ctrl.vm')
             single-post(post='post')
 
-section.posts(ng-if='!ctrl.vm.models.length')
+section.posts(ng-if='!ctrl.vm.length')
     h2 No posts yet :(

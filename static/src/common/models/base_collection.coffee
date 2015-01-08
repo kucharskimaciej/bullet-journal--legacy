@@ -91,6 +91,10 @@ class BaseCollection
         @_setCollectionProperty(model)
         model
 
+    all: -> @models
+
+    size: -> @models.length
+
     _setCollectionProperty: (model) ->
         Object.defineProperty model, 'collection', enumerable: no, value: @
 
