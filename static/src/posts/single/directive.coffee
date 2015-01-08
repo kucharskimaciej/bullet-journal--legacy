@@ -6,6 +6,7 @@ angular.module('posts')
     replace: yes
     templateUrl: 'posts/single/directive.tpl.html'
     controller: (Posts, $scope) ->
-        $scope.remove = -> Posts.remove($scope.post)
+        $scope.remove = -> $scope.post.destroy()
+        $scope.atts = $scope.post.attributes
 
 

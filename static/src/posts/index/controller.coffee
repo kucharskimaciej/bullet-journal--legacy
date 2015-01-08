@@ -1,6 +1,6 @@
 angular.module('posts')
-.controller 'PostsIndexController', ($scope, Post, Posts) ->
-    @vm = Posts.$collection
-    Posts.fetch()
+.controller 'PostsIndexController', ($scope, Posts) ->
+    @vm = Posts
+    Posts.fetch(reset: true)
 
     return

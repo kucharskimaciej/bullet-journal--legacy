@@ -2,24 +2,15 @@ angular.module('posts')
 .service 'PostModelProvider', (Post, Posts, $state) ->
     vm = @
 
-    afterSubmit = () ->
-        $state.go 'bullet.index'
-
     vm.get = ->
         if $state.params.postID
-            if Posts.$collection.models
-                vm.post = Posts.get($state.params.postID)
+            if Posts.models.length
+                vm.post = Posts.getOne($state.params.postID)
             else
-                Posts.fetch().then ->
-                    vm.post = Posts.get($state.params.postID)
+                vm.post = Posts.new(_id: $state.params.postID)
+                vm.post.fetch()
         else
-            vm.post = Posts.one()
+            vm.post = Posts.new()
 
-    vm.save = ->
-        console.log('#1', vm.post.original_content)
-        Posts.save(vm.post)
-            .then (post) ->
-                vm.post.content = post.content
-            #.then afterSubmit
 
     return
