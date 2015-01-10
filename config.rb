@@ -1,3 +1,4 @@
+require 'compass'
 require 'bootstrap-sass'
 require 'sass-globbing'
 
@@ -10,8 +11,8 @@ fonts_dir   = "fonts"
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 
-line_comments = true
+line_comments = false
 output_style = :expanded
-cache = false
+cache = true
 relative_assets = true
 preferred_syntax = :sass
