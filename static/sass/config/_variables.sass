@@ -2,19 +2,29 @@ $primary: #fff
 $secondary: #1f2228
 
 $font-family-serif: 'Merriweather', serif
-$font-family-sans-serif: 'Verdana'
+$font-family-sans-serif: 'Droid Sans', sans-serif
 
 $font-family-base: $font-family-serif
+$font-size-base: 16px
 
-$navigation-width: 50px
+$navigation-height: 60px
+$navigation-font: $font-family-sans-serif
+$navigation-item-height: 30px
+$navigation-offset: 20px
 $navigation-link-color: $primary
-$navigation-hover-color: lighten($primary, 10%)
+$navigation-hover-color: $primary
 $navigation-active-color: lighten($primary, 10%)
 $navigation-bg: $secondary
-$navigation-hover-bg: lighten($secondary, 5%)
+$navigation-hover-bg: darken($secondary, 5%)
 $navigation-active-bg: lighten($secondary, 5%)
 
 
 
 @function rem($size)
   @return #{$size/$font-size-base}rem
+
+@function white($opacity)
+  @return rgba(white, $opacity)
+
+@function black($opacity)
+  @return rgba(black, $opacity)
