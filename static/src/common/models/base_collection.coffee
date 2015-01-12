@@ -44,11 +44,16 @@ class BaseCollection
         @models = []
         @isClean = yes
 
+    empty: ->
+        @models.pop() for model in @models
+        return
+
     fetch: (options) ->
         options = _.extend {}, @defaultFetchOptions, options
 
         if @$Resource and (@isClean or options.reset)
             return @$Resource.getList().then (models) =>
+                @empty()
                 @add(model) for model in models
                 @isClean = no
 
