@@ -1,6 +1,8 @@
 angular.module('posts')
 .directive 'postDate', ->
-  scope: true
+  scope: {
+    dateModel: "=date"
+  }
   restrict: 'E'
   replace: yes
   templateUrl: 'posts/single/date.tpl.html'
@@ -9,9 +11,10 @@ angular.module('posts')
     months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
     scope.date =
-      weekday: days[scope.post.created_at.getDay()]
-      day: scope.post.created_at.getDate()
-      month: months[scope.post.created_at.getMonth()]
+      weekday: days[scope.dateModel.getDay()]
+      day: scope.dateModel.getDate()
+      month: months[scope.dateModel.getMonth()]
+      year: scope.dateModel.getFullYear()
 
 
 

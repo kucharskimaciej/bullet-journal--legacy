@@ -1,0 +1,35 @@
+.Date
+  font-family: $font-family-sans-serif
+  text-transform: uppercase
+  text-align: center
+  font-weight: bold
+  color: $post-date-color
+  font-size: rem($font-size-xl)
+  line-height: 1
+
+  position: relative
+  display: inline-block
+  margin-right: rem(10px)
+
+
+
+.Date-weekday, .Date-day, .Date-month-year
+  display: inline-block
+  vertical-align: middle
+  
+.Date-weekday
+  +transform( rotateZ(-90deg) )
+
+  vertical-align: middle
+  font-size: 0.35em
+  
+.Date-day
+  $letter-spacing: 2px
+  margin-right: rem(5px + $letter-spacing)
+  letter-spacing: -$letter-spacing
+  
+.Date-month, .Date-year
+  display: block
+  font-size: 0.4em
+  text-align: left
+

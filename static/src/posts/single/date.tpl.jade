@@ -1,2 +1,6 @@
-aside
- | {{ date.weekday }}, {{ date.day }} {{ date.month }}
+aside.Date
+ span.Date-weekday {{ date.weekday }}
+ span.Date-day {{ date.day }}
+ span.Date-month-year
+  span.Date-month {{ date.month }}
+  span.Date-year {{ date.year }}
