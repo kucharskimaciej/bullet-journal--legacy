@@ -30,20 +30,16 @@
   color: $navigation-link-color
   line-height: rem($navigation-item-height - 10px)
 
-  padding: rem(5px) rem(10px)
+  padding: rem(5px) 0
+  margin: 0 rem(20px) 0 rem(10px)
   height: $navigation-item-height
   
-
-  +border-radius(4px)
-
 
   &:hover, &:active, &:focus
     text-decoration: none
 
   &:not(.active):hover
-    background-color: $navigation-hover-bg
     color: $navigation-hover-color
-    +box-shadow(inset 0 0 0px 3px rgba(black, 0.05))
     border-bottom: 1px solid white(0.15)
   
   &:active, &:focus, &.active

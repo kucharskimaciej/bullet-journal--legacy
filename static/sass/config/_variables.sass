@@ -1,3 +1,12 @@
+@function rem($size)
+  @return #{$size/$font-size-base}rem
+
+@function white($opacity)
+  @return rgba(white, $opacity)
+
+@function black($opacity)
+  @return rgba(black, $opacity)
+
 $primary: #2b3848
 $secondary: #ea5343
 
@@ -18,13 +27,5 @@ $navigation-bg: $primary
 $navigation-hover-bg: darken($primary, 5%)
 $navigation-active-bg: $primary
 
+$main-container-width: rem(900px)
 
-
-@function rem($size)
-  @return #{$size/$font-size-base}rem
-
-@function white($opacity)
-  @return rgba(white, $opacity)
-
-@function black($opacity)
-  @return rgba(black, $opacity)
