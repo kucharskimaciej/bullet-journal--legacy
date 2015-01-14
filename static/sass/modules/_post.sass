@@ -25,29 +25,30 @@
   
 
 $details-rotation: 30deg
-$details-width: 150px
-$details-vert-offset: 50px
-$details-hori-offset: 60px
+$details-size: 150px
+$details-vert-offset: 20px
+$details-hori-offset: $details-size/2
 
 .Post-details
   position: absolute
   top: -$details-vert-offset
-  bottom: 0
-  right: -$details-hori-offset
+  right: -$details-size
 
   display: block
 
-  width: 100px
+  width: $details-size
+  height: $details-size
 
   
   background-color: $secondary
-  
-  +transform(rotateZ(-$details-rotation))
+
+  +transform-origin(0 100%)
+  +transform(rotateZ(0))
 
   +transition(all 0.5s)
   
   .Post:hover &
-    right: -200px
+    +transform(rotateZ(-$details-rotation))
 
 .Post-details-icons
   +transform(rotateZ($details-rotation))
@@ -59,3 +60,4 @@ $details-hori-offset: 60px
   bottom: 0
 
   padding-top: $details-vert-offset
+
