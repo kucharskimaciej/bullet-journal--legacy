@@ -3,8 +3,13 @@ article.Post
       post-date(date="atts.created_at").Post-date
       h2.Post-title {{ atts.title }}
 
-   div(ng-bind-html="atts.content | rawHtml")
-   a(ui-sref='bullet.writing.edit({ postID: atts._id })') edit
-   a(ng-click='remove(post)') delete
+   section.Post-content(ng-bind-html="atts.content | rawHtml")
+
+   footer.Post-details
+      span.Post-details-icons
+         a(ui-sref='bullet.writing.edit({ postID: atts._id })')
+            i.fa.fa-edit
+         a(ng-click='remove(post)')
+            i.fa.fa-trash
 
 

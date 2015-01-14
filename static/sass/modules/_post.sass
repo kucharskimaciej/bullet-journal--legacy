@@ -1,12 +1,13 @@
 .Post
   display: block
-  margin-bottom: $grid-gutter-width/2
+
   padding: $grid-gutter-width
 
   position: relative
-  
+  overflow: hidden
+
   background-color: white
-  border: 1px solid rgba($primary, 0.1)
+  border-bottom: 1px solid rgba($primary, 0.1)
 
 .Post-date
   float: left
@@ -22,3 +23,39 @@
 
   margin: 0 0 rem(30px)
   
+
+$details-rotation: 30deg
+$details-width: 150px
+$details-vert-offset: 50px
+$details-hori-offset: 60px
+
+.Post-details
+  position: absolute
+  top: -$details-vert-offset
+  bottom: 0
+  right: -$details-hori-offset
+
+  display: block
+
+  width: 100px
+
+  
+  background-color: $secondary
+  
+  +transform(rotateZ(-$details-rotation))
+
+  +transition(all 0.5s)
+  
+  .Post:hover &
+    right: -200px
+
+.Post-details-icons
+  +transform(rotateZ($details-rotation))
+
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+
+  padding-top: $details-vert-offset
