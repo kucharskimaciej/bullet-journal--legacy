@@ -52,12 +52,28 @@ $details-hori-offset: $details-size/2
 
 .Post-details-icons
   +transform(rotateZ($details-rotation))
+  +transform-origin(0% 0%)
 
   position: absolute
   top: 0
   left: 0
-  right: 0
+  right: $details-hori-offset
   bottom: 0
 
-  padding-top: $details-vert-offset
+  padding-top: $details-vert-offset/2
+  padding-left: 2*$details-vert-offset
+  
+  font-size: $font-size-large
+  text-align: right
+
+  a
+    display: block
+    text-align: center
+    color: white
+    margin-bottom: rem(10px)
+    cursor: pointer
+
+  a:hover
+    color: white(0.8)
+
 
