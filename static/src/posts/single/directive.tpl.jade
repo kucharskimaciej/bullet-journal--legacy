@@ -3,7 +3,7 @@ article.Post
       post-date(date="atts.created_at").Post-date
       h2.Post-title {{ atts.title }}
 
-   section.Post-content(ng-bind-html="atts.content | rawHtml")
+   post-content.Post-content(content="atts.content")
 
    footer.Post-details
       span.Post-details-icons
