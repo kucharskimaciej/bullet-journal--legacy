@@ -1,6 +1,7 @@
 angular.module('templates', [])
 angular.module('navigation', [])
 angular.module('ui.form', [])
+angular.module('common', [])
 angular.module('common.filters', [])
 angular.module('common.models.base', ['restangular'])
 angular.module('common.models.post', ['restangular', 'common.models.base'])
@@ -14,4 +15,5 @@ angular.module 'app', [
   'posts'
   'ui.form'
   'ui.bootstrap'
+  'common'
 ]
