@@ -1,7 +1,7 @@
 $text-size-xs: 12px
 $text-size-s: 16px
 $text-size: 18px
-$text-size-l: 20px
+$text-size-l: 32px
 $text-size-xl: 40px
 
 $font-family-serif: 'Merriweather', serif
@@ -29,10 +29,19 @@ $font-weight-bolder: 700
   line-height: $line-height-base
   font-family: $font-family-serif
 
+@mixin text-header
+  +text-normal
+  line-height: (22/18)
+  font-family: $font-family-sans-serif
+
 
 @mixin textM
   +text
   font-size: $text-size
+
+@mixin textL
+  +text
+  font-size: $text-size-l
 
 @mixin textXL
   +text

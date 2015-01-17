@@ -1,7 +1,19 @@
 .Content
   +textM
-  
-  
+
   p, ul, ol
     margin-top: 0
     margin-bottom: rem($line-height-computed)
+
+  h1, h2
+    +textL
+
+  h3
+    +textL
+    font-size: 0.8 * $text-size-l
+
+  h1, h2, h3, h4
+    +text-header
+    +text-bold
+    margin: 0 0 rem($line-height-computed/2) 0
+
