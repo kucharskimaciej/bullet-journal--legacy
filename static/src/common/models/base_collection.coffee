@@ -1,6 +1,9 @@
 class BaseModel
 
+    defaults: {}
+
     constructor: (@attributes = {}) ->
+        angular.extend @attributes, @defaults
         return
 
     isClean: ->
@@ -26,6 +29,7 @@ class BaseModel
         if idAttr and $Resource
             @$Resource.one(@attributes[idAttr]).get().then (res) =>
                 @attributes = res
+                angular.extend @attributes, @defaults
                 res
 
     destroy: ->
@@ -74,7 +78,7 @@ class BaseCollection
 
     add: (model, atStart = no) ->
         if model.attributes?[@idAttr] and @models[model.attributes[@idAttr]]
-            _.extend @models[model.attributes[@idAttr]], model
+            _.extend @models[model.attributes[@idAttr]], model, model.defaults
             return
 
         unless model instanceof @modelClass

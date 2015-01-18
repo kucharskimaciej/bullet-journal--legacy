@@ -20,6 +20,8 @@ angular.module 'common.models.post'
 
     class PostModel extends BaseModel
         $Resource: Post
+        defaults:
+            type: "regular"
 
     class PostsCollection extends BaseCollection
         $Resource: Post
