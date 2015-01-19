@@ -1,13 +1,11 @@
 ng-switch(on='type')
-    div.form-group(ng-switch-when='text')
-        label(ng-if='label') {{ label }}
-        input(type='{{ type }}' ng-model="$parent.model" class="form-control")
+    div.form-group(ng-switch-when='text' ui-form-validation='{{ validates }}')
+        input(type='{{ type }}' ng-model="$parent.model" class="form-control" placeholder="{{ label }}")
 
-    div.field(ng-switch-when='textarea')
-        label(ng-if='label') {{ label }}
-        textarea(ng-model='$parent.model' class="form-control")
+    div.field(ng-switch-when='textarea' ui-form-validation='{{ validates }}')
+        textarea(ng-model='$parent.model' class="form-control" placeholder="{{ label }}")
 
-    div.field(ng-switch-when='select')
+    div.field(ng-switch-when='select' ui-form-validation='{{ validates }}')
         label(ng-if='label') {{ label }}
 
         .btn-group(dropdown='' on-toggle='toggled(open)')

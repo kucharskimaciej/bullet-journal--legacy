@@ -4,6 +4,7 @@ angular.module 'ui.form'
         label: '@?'
         type: '@'
         model: '='
+        validates: '@'
     restrict: 'E'
     require: '^ngForm'
     replace: yes
@@ -12,4 +13,3 @@ angular.module 'ui.form'
         if $scope.type is 'select' and $attrs.options
             $scope.options = $scope.$parent.$eval($attrs.options)
             $scope.toggle = (state) -> $scope.model = state
-
