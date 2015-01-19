@@ -3,8 +3,9 @@ angular.module 'ui.form'
     restrict: 'A'
     link: (scope, element, attrs, ctrl) ->
         validations = scope.$eval(attrs.uiFormValidation)
-        element.removeAttr('uiFormValidation')
-        element.attr(key, val) for key, val of validations
+        element.removeAttr('ui-form-validation')
 
+        element.attr(key, val) for key, val of validations
         $compile(element)(scope)
+
 

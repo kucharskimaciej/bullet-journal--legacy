@@ -28,8 +28,8 @@ gulp.task 'compile-templates', ->
 gulp.task 'build-libs', ->
   gulp.src bowerFiles()
     .pipe concat('libs.js')
-    .pipe ngmin()
-    .pipe uglify()
+    #.pipe ngmin()
+    #.pipe uglify()
     .pipe gulp.dest paths.dist
 
 
