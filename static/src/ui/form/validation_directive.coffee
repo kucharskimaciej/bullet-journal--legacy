@@ -3,9 +3,8 @@ angular.module 'ui.form'
     restrict: 'A'
     link: (scope, element, attrs, ctrl) ->
         validations = scope.$eval(attrs.uiFormValidation)
-        input = angular.element(element[0].querySelector('input, textarea, select'))
+        element.removeAttr('uiFormValidation')
+        element.attr(key, val) for key, val of validations
 
-        input.attr(key, val) for key, val of validations
-
-        $compile(element.contents())(scope)
+        $compile(element)(scope)
 
