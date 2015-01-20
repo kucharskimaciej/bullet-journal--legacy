@@ -2,35 +2,44 @@ class BaseModel
 
     defaults: {}
 
+
     constructor: (@attributes = {}) ->
-        angular.extend @attributes, @defaults
+        @_applyDefaults @attributes
         return
 
     isClean: ->
         !@attributes.fromServer
 
     save: ->
-        promise = if @isClean() then @$Resource.post(@attributes) else @attributes.save()
+        promise = if @isClean() then @_getResource().post(@attributes) else @attributes.save()
+        if @isClean() and @collection
+            promise.then (res) =>
+                @collection.add @, yes
+                res
+
         promise.then (res) =>
             @attributes = res
             res
 
-        if @isClean() and @collection
-            promise.then (res) =>
-                @collection.add @, yes
-                @
-
         promise
 
     fetch: ->
-        $Resource = @$Resource or @collection?.$Resource
-        idAttr = @idAttr or @collection?.idAttr
+        $Resource = @_getResource()
 
-        if idAttr and $Resource
-            @$Resource.one(@attributes[idAttr]).get().then (res) =>
+        if @_getId() and $Resource
+            $Resource.one(@_getId()).get().then (res) =>
                 @attributes = res
-                angular.extend @attributes, @defaults
+                @_applyDefaults @attributes
                 res
+
+    _getIdAttr: -> @idAttr or @collection?.idAttr
+
+    _getId: -> @attributes[@_getIdAttr()]
+
+    _getResource: -> @$Resource or @collection?.$Resource
+
+    _applyDefaults: (attr) ->
+        _.defaults attr, @defaults
 
     destroy: ->
         if @collection
