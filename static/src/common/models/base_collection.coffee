@@ -58,8 +58,9 @@ class BaseCollection
         @isClean = yes
 
     empty: ->
+        return false if @size() is 0
         @models.pop() for model in @models
-        return
+        return true
 
     fetch: (options) ->
         options = _.extend {}, @defaultFetchOptions, options
@@ -75,6 +76,7 @@ class BaseCollection
     getOne: (id) ->
         for model in @models
             return model if model.attributes?[@idAttr] is id
+        return null
 
     remove: (model) ->
         idx = @models.indexOf(model)
