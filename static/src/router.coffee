@@ -36,6 +36,20 @@ app.config ($stateProvider, $urlRouterProvider) ->
           controller: 'PostsWritingFormController as ctrl'
 
 
-  $urlRouterProvider.otherwise('/')
+    .state 'errors',
+      abstract: yes,
+      templateUrl: 'errors/layout.tpl.html'
+
+    .state 'errors.404',
+      templateUrl: 'errors/404.tpl.html'
+      controller: 'ErrorController as ctrl'
+      data:
+        errorType: '404'
+
+
+  $urlRouterProvider.when('', '/')
+  $urlRouterProvider.otherwise ($injector) ->
+    return $injector.invoke ($state) ->
+      $state.go('errors.404')
 
   return
