@@ -2,6 +2,9 @@ angular.module 'posts'
   .controller 'PostsWritingNavigationController', (PostModelProvider) ->
     vm = @
 
+    vm.submit = ->
+      vm.post.submit vm.post.form.$valid
+
     vm.navigationItems = [
       name: 'Done',
       icon: 'check'
@@ -15,7 +18,6 @@ angular.module 'posts'
 
     vm.post = PostModelProvider
 
-    vm.submit = ->
-      vm.post?.submit()
+
 
     return

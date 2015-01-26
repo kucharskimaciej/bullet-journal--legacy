@@ -3,5 +3,5 @@ angular.module 'common.navigation'
     scope:
         items: '='
     restrict: 'E'
-    replace: yes
+    replace: no
     templateUrl: 'common/navigation/navbar_directive.tpl.html'

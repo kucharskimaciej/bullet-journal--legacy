@@ -7,10 +7,6 @@ angular.module('posts')
     $scope.$watch 'postForm', (form) =>
         @vm.form = form
 
-    @onSubmit = (isValid, data) =>
-        console.log('try submit')
-        @vm.post.save() if isValid
-
     return
 
 

@@ -1,9 +1,6 @@
-a(  ng-attr-ui-sref='{{ state }}'
-    ng-attr-ng-click="action"
+a(  ui-sref='{{ state }}'
     title='{{ title }}'
-    ui-sref-active="active"
+    ui-sref-active="active" )
 
-    )
-    | {{ action }}
     span(class='fa fa-{{ icon }}')
     | {{ title }}

@@ -4,10 +4,13 @@ angular.module 'common.navigation'
         title: '@'
         icon: '@'
         state: '@?'
-        action: '&?'
+        item: '='
     restrict: 'E'
-    require: '^navigationBar'
+    require: '^^?navigationBar'
     replace: yes
     templateUrl: 'common/navigation/item_directive.tpl.html'
-    controller: ($scope) ->
-        console.log($scope.action())
+    link: (scope, element, attrs) ->
+        if scope.item.action
+            element.on 'click', (event) ->
+                event.preventDefault()
+                scope.item.action()

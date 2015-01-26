@@ -20,6 +20,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
           templateUrl: 'posts/index/template.tpl.html'
           controller: 'PostsIndexController as ctrl'
 
+
     .state 'bullet.writing',
       url: '/posts',
       abstract: yes,
@@ -31,7 +32,6 @@ app.config ($stateProvider, $urlRouterProvider) ->
         'main':
           templateUrl: 'posts/writing/layout.tpl.html'
           controller: 'PostsWritingController as ctrl'
-
 
     .state 'bullet.writing.new',
       url: '/new'
