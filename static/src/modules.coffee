@@ -1,5 +1,5 @@
 angular.module('templates', [])
-angular.module('navigation', [])
+angular.module('common.navigation', [])
 angular.module('ui.form', [])
 angular.module('common', [])
 angular.module('layout', [])
@@ -12,7 +12,7 @@ angular.module 'app', [
   'restangular'
   'ui.router'
   'templates'
-  'navigation'
+  'common.navigation'
   'posts'
   'ui.form'
   'ui.bootstrap'

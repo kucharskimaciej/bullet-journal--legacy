@@ -4,5 +4,6 @@ nav.Navigation
             title='{{ item.name }}'
             state='{{ item.sref }}'
             icon='{{ item.icon }}'
-            ng-repeat='item in ::items track by $id(item)'
+            action='item.action'
+            ng-repeat='item in items track by $id(item)'
         )

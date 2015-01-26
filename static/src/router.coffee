@@ -11,14 +11,26 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
     .state 'bullet.index',
       url: '/'
-      templateUrl: 'posts/index/template.tpl.html'
-      controller: 'PostsIndexController as ctrl'
+      views:
+        'navigation':
+          templateUrl: 'common/navigation/navigation.tpl.html'
+          controller: 'CommonNavigationController as ctrl'
+
+        'main':
+          templateUrl: 'posts/index/template.tpl.html'
+          controller: 'PostsIndexController as ctrl'
 
     .state 'bullet.writing',
       url: '/posts',
       abstract: yes,
-      templateUrl: 'posts/writing/layout.tpl.html'
-      controller: 'PostsWritingController as ctrl'
+      views:
+        'navigation':
+          templateUrl: 'posts/writing/navigation/navigation.tpl.html'
+          controller: 'PostsWritingNavigationController as ctrl'
+
+        'main':
+          templateUrl: 'posts/writing/layout.tpl.html'
+          controller: 'PostsWritingController as ctrl'
 
 
     .state 'bullet.writing.new',

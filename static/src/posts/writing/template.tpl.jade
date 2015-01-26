@@ -1,7 +1,6 @@
-form(   name='newPostForm'
-        ng-submit='ctrl.onSubmit(newPostForm.$valid, ctrl.vm.post.attributes)'
+form(   name='postForm'
+        ng-submit='ctrl.onSubmit(postForm.$valid, ctrl.vm.post.attributes)'
         novalidate )
 
     ui-form-field(type='text' label='Post title' model='ctrl.vm.post.attributes.title' validates="{ 'required': true, 'ng-minlength': 5 }")
     ui-form-field(type='textarea' model='ctrl.vm.post.attributes.original_content' label='Post content')
-    button(type='submit') submit
