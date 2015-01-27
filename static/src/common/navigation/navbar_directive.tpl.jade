@@ -1,8 +1,5 @@
 .Navigation-helper
     navigation-item.Navigation-item(
-        title='{{ item.name }}'
-        state='{{ item.sref || false }}'
-        icon='{{ item.icon }}'
-        item='item'
+        config='item'
         ng-repeat='item in items track by $id(item)'
     )

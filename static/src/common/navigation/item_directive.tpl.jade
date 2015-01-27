@@ -1,6 +1,7 @@
-a(  ui-sref='{{ state }}'
-    title='{{ title }}'
-    ui-sref-active="active" )
+a(  ui-sref='{{ config.state || false }}'
+    title='{{ config.name }}'
+    ui-sref-active='active'
+    ng-class='{ "btn": config.primary, "btn-success": config.primary }')
 
-    span(class='fa fa-{{ icon }}')
-    | {{ title }}
+    span(class='fa fa-{{ config.icon }}')
+    | {{ config.name }}
