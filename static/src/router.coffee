@@ -37,14 +37,14 @@ app.config ($stateProvider, $urlRouterProvider) ->
       url: '/new'
       views:
         'editor':
-          templateUrl: 'posts/writing/template.tpl.html'
+          templateUrl: 'posts/writing/form.tpl.html'
           controller: 'PostsWritingFormController as ctrl'
 
     .state 'bullet.writing.edit',
       url: '/:postID/edit'
       views:
         'editor':
-          templateUrl: 'posts/writing/template.tpl.html'
+          templateUrl: 'posts/writing/form.tpl.html'
           controller: 'PostsWritingFormController as ctrl'
 
 

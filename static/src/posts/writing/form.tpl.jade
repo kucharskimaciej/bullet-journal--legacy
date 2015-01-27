@@ -1,0 +1,9 @@
+form.UiForm.PostEditor(   name='postForm'
+                ng-submit='ctrl.onSubmit(postForm.$valid, ctrl.vm.post.attributes)'
+                novalidate )
+    h1.PostEditor-header
+        | at
+        post-date.PostEditor-date(date="ctrl.today")
+        ui-form-field.UiFormField__inline(type='text' label='about...' model='ctrl.vm.post.attributes.title' validates="{ 'required': true, 'ng-minlength': 5 }")
+
+    ui-form-field(type='textarea' model='ctrl.vm.post.attributes.original_content' label='Journal entry')

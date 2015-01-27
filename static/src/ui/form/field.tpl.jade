@@ -1,9 +1,9 @@
-ng-switch(on='type')
-    div.form-group(ng-switch-when='text')
-        input(type='{{ type }}' ng-model="$parent.model" class="form-control" placeholder="{{ label }}" ui-form-validation='{{ validates }}')
+span.UiFormField(ng-switch='' on='type')
+    div.field(ng-switch-when='text')
+        input(type='{{ type }}' ng-model="$parent.model" placeholder="{{ label }}" ui-form-validation='{{ validates }}')
 
     div.field(ng-switch-when='textarea')
-        textarea(ng-model='$parent.model' class="form-control" placeholder="{{ label }}" ui-form-validation='{{ validates }}')
+        textarea(ng-model='$parent.model' placeholder="{{ label }}" ui-form-validation='{{ validates }}')
 
     div.field(ng-switch-when='select' ui-form-validation='{{ validates }}')
         label(ng-if='label') {{ label }}
