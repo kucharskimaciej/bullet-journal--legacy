@@ -1,13 +1,11 @@
 convert = (i) ->
   if i instanceof Date then i else new Date(i)
 
-_default = "Unk"
+_default = ""
 
 angular.module('common.filters')
 .filter 'weekday', ->
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-
   return (input) ->
     days[convert(input).getDay()] or _default
 
