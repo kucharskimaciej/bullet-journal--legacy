@@ -52,8 +52,6 @@ $font-weight-bolder: 700
   line-height: 1.25
 
 
-
-
 @function rem($size)
   @return #{$size/$font-size-base}rem
 
@@ -99,3 +97,32 @@ $input-border-focus: lighten($secondary, 10%)
 $input-border-radius: 0
 $input-border-radius-large: 0
 $input-border-radius-small: 0
+
+
+@mixin fixed($top:0, $right: 0, $bottom:0, $left: 0)
+  position: fixed
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+@mixin absolute($top:0, $right: 0, $bottom:0, $left: 0)
+  position: absolute
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+@mixin placeholder-text
+  &::-webkit-input-placeholder
+    @content
+
+  &:-moz-placeholder /* Firefox 18- */
+    @content
+
+  &::-moz-placeholder  /* Firefox 19+ */
+    @content
+
+  &:-ms-input-placeholder
+    @content
+

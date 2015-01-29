@@ -1,12 +1,13 @@
-form.UiForm(   name='postForm'
-                ng-submit='ctrl.onSubmit(postForm.$valid, ctrl.vm.post.attributes)'
-                novalidate )
-    header.PostEditor-header
-        h1.PostEditor-title
-            span.pull-left
-                | at
-                post-date.PostEditor-date(date="ctrl.today")
-            ui-form-field(type='text' label='about...' model='ctrl.vm.post.attributes.title' validates="{ 'required': true, 'ng-minlength': 5 }")
+.PostEditor-area
+    form.UiForm(   name='postForm'
+                    ng-submit='ctrl.onSubmit(postForm.$valid, ctrl.vm.post.attributes)'
+                    novalidate )
+        header.PostEditor-header
+            h1.PostEditor-title
+                span.pull-left
+                    | at
+                    post-date.PostEditor-date(date="ctrl.today")
+                ui-form-field(type='text' label='about...' model='ctrl.vm.post.attributes.title' validates="{ 'required': true, 'ng-minlength': 5 }")
 
-    article.PostEditor-content
-        ui-form-field(type='textarea' model='ctrl.vm.post.attributes.original_content' label='Journal entry')
+        article.PostEditor-content
+            ui-form-field(type='textarea' model='ctrl.vm.post.attributes.original_content' label='Journal entry')

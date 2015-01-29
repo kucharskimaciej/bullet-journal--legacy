@@ -1,8 +1,12 @@
 .PostEditor
   font-family: $font-family-sans-serif
+  color: white(0.9)
 
+  +fixed($navigation-height, 50%)
+
+.PostEditor-area
   padding: $grid-gutter-width
-  padding-bottom: $input-border-width
+  padding-bottom: 0
   height: 100%
 
 .PostEditor form
@@ -28,9 +32,11 @@
   .UiFormField
     display: block
 
-  .UiFormField, .field, textarea
+  .UiFormField,
+  .field,
+  textarea
     height: 100%
 
 .PostEditor-date
-  margin: 0 rem(10px) 0 rem(12px)
+  margin: 0 rem(10px) 0 rem(5px)
   vertical-align: top
