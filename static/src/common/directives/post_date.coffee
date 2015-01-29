@@ -1,11 +1,11 @@
-angular.module('posts')
+angular.module('common.directives')
 .directive 'postDate', ->
   scope: {
     date: "=date"
   }
   restrict: 'E'
   replace: yes
-  templateUrl: 'posts/single/date.tpl.html'
+  templateUrl: 'common/directives/post_date.tpl.html'
 
 
 
