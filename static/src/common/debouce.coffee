@@ -1,5 +1,5 @@
 angular.module 'common'
-.factory 'debouce', ($timeout) ->
+.factory 'debounce', ($timeout) ->
 
     return (callback, interval) ->
         timeout = null

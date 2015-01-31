@@ -14,7 +14,7 @@ angular.module('common', [
   'common.navigation'
 ])
 
-angular.module('posts', ['common.models.post', 'common.filters'])
+angular.module('posts', ['common'])
 
 angular.module 'app', [
   'restangular'
