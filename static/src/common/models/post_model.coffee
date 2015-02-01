@@ -22,6 +22,7 @@ angular.module 'common.models.post'
         $Resource: Post
         defaults:
             type: "regular"
+            created_at: new Date
 
     class PostsCollection extends BaseCollection
         $Resource: Post

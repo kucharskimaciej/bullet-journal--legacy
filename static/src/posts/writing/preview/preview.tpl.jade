@@ -1,1 +1,10 @@
-section(ng-bind-html='preview.rendered | rawHtml')
+.Preview-area
+    .Preview-post
+        header.Preview-header
+            h1.Preview-title
+                span.pull-left
+                    post-date.Preview-date(date="preview.post.attributes.created_at")
+                | {{ preview.post.attributes.title }}
+
+
+        post-content.Preview-content(content="preview.rendered")
