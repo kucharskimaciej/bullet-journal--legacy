@@ -79,6 +79,9 @@ class BaseCollection
         return null
 
     remove: (model) ->
+        throw new Error('model must be defined') unless model
+        throw new Error('model must be instance of collection\'s modelClass') unless model instanceof @modelClass
+
         idx = @models.indexOf(model)
         @models.splice(idx, 1) if idx >= 0
 

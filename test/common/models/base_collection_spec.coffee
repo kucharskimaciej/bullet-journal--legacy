@@ -131,3 +131,18 @@ describe "Base Collection", () ->
             for model in models
                 expect @collection.all().indexOf(model)
                     .not.toBe -1
+
+    describe "#remove", () ->
+        beforeEach basicSetup
+
+        it "throws an error unless passed a model", () ->
+            expect -> @collection.remove()
+                .toThrow()
+
+        it "throws an error if passed object isn't collections modelClass", () ->
+            expect -> @collection.remove({})
+                .toThrow()
+
+        it "returns false if model is not found in the collection", () ->
+            expect @collection.remove(@modelA)
+                .toBe false
