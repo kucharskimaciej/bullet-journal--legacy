@@ -67,15 +67,24 @@ describe "Base Collection", () ->
     describe "#size", ->
         beforeEach basicSetup
 
-        it "returns size of the collection", ->
+        it "collection size is 0 at the beginning", ->
             expect @collection.size()
                 .toBe 0
 
+        it "returns size of the collection", ->
             @collection.add @modelA
             @collection.add @modelB
 
             expect @collection.size()
                 .toBe 2
+
+        it "collection size is 0 after emptying", ->
+            @collection.add @modelA
+            @collection.add @modelB
+            @collection.empty()
+            expect @collection.size()
+                .toBe 0
+
 
     describe "#new", ->
         beforeEach basicSetup
@@ -99,3 +108,26 @@ describe "Base Collection", () ->
         it "is clean by default", ->
             expect @collection.isClean
                 .toBe yes
+
+
+
+
+    describe "#all", () ->
+        beforeEach basicSetup
+
+        it "returns an array", () ->
+          expect @collection.all() instanceof Array
+              .toBe yes
+
+        it "returned array contains all models", ->
+            models = [@modelA, @modelB]
+
+            for model in models
+                @collection.add(model)
+
+            expect @collection.all().length
+                .toBe models.length
+
+            for model in models
+                expect @collection.all().indexOf(model)
+                    .not.toBe -1
