@@ -65,6 +65,14 @@ $primary: #2b3848
 $secondary: #ea5343
 $complimentary: #C7BA8D
 
+/* brand colors */
+$brand-primary: darken($primary, 10%)
+$brand-success: lighten(#17A69B, 10%)
+$brand-info: #5bc0de
+$brand-warning: #f0ad4e
+$brand-danger: $secondary
+
+
 $body-bg: lighten($primary, 10%)
 
 
@@ -97,7 +105,10 @@ $input-border-focus: lighten($secondary, 10%)
 $input-border-radius: 0
 $input-border-radius-large: 0
 $input-border-radius-small: 0
-
+//
+//$border-radius-base: 0
+//$border-radius-large: 0
+//$border-radius-small: 0
 
 @mixin fixed($top:0, $right: 0, $bottom:0, $left: 0)
   position: fixed

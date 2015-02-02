@@ -1,7 +1,7 @@
 a(  ui-sref='{{ config.sref || false }}'
     title='{{ config.name }}'
     ui-sref-active='active'
-    ng-class='{ "btn": config.primary, "btn-success": config.primary }')
+    ng-class='{ "btn btn-xs btn-success": config.primary }')
 
     span(class='fa fa-{{ config.icon }}')
     | {{ config.name }}

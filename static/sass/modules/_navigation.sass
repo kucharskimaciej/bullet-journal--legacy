@@ -19,21 +19,11 @@
 
   background-color: $navigation-bg
   +box-shadow(2px 0 0 0 rgba($secondary, 0.5))
-  
-.Navigation-item
 
-  display: inline-block
 
-  text-align: center
+.Navigation-item:not(.btn)
   color: $navigation-link-color
-  line-height: rem($navigation-item-height - 10px)
-
   padding: rem(5px) 0
-  margin: 0 rem(30px) 0 rem(0px)
-  height: $navigation-item-height
-
-  cursor: pointer
-  
 
   &:hover,
   &:active,
@@ -43,14 +33,28 @@
   &:not(.active):hover
     color: $navigation-hover-color
     border-bottom: 1px solid white(0.15)
-  
+
   &:active,
   &:focus,
   &.active
     color: $navigation-active-color
     background-color: $navigation-active-bg
-    
-    
+
+.Navigation-item
+
+  display: inline-block
+
+  text-align: center
+  font-size: inherit
+  line-height: rem($navigation-item-height - 10px)
+  height: $navigation-item-height
+
+  padding: rem(5px) rem(10px)
+  border: 0
+
+  margin: 0 rem(30px) 0 rem(0px)
+  cursor: pointer
+
   .fa
     margin-right: rem(5px)
 
