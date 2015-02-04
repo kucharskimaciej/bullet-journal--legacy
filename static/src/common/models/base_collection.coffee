@@ -59,7 +59,7 @@ class BaseCollection
 
     empty: ->
         return false if @size() is 0
-        @models.pop() for model in @models
+        @models.pop() for model in @models # more speedy than splice
         return true
 
     fetch: (options) ->

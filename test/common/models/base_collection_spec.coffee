@@ -146,3 +146,40 @@ describe "Base Collection", () ->
         it "returns false if model is not found in the collection", () ->
             expect @collection.remove(@modelA)
                 .toBe false
+
+        it "returns true after sucesful removal", ->
+            @collection.add @modelA
+
+            expect @collection.remove @modelA
+                .toBe true
+
+        it "removes a model from collection", ->
+            @collection.add @modelA
+            @collection.remove @modelA
+
+            expect @collection.size()
+                .toBe 0
+
+        it "removes just the passed model from collection", () ->
+            @collection.add @modelA
+            @collection.add @modelB
+            @collection.remove @modelA
+
+            expect @collection.size()
+                .toBe 1
+
+        it "removes quick reference from collection", ->
+            @collection.add @modelA
+            @collection.remove @modelA
+
+            expect @collection.models[@modelA.attributes._id]
+                .not.toBeDefined()
+
+        it "works for clean models", ->
+
+            delete @modelA.attributes._id
+
+            @collection.add @modelA
+
+            expect => @collection.remove @modelA
+                .not.toThrow()
