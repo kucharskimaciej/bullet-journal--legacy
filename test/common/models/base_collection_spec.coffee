@@ -183,3 +183,63 @@ describe "Base Collection", () ->
 
             expect => @collection.remove @modelA
                 .not.toThrow()
+
+    describe "#add", () ->
+
+        beforeEach basicSetup
+
+        it "adds a model to collection", () ->
+            @collection.add @modelA
+
+            expect @collection.getOne @modelA._getId()
+                .toBe @modelA
+
+        it "creates a quick reference to model if model has an id", () ->
+            @collection.add @modelA
+
+            expect @collection.models[@modelA._getId()]
+                .toBe @modelA
+        it "adds a model that is an instance of collection's modelClass when passed a plain object", () ->
+            @collection.add some_prop: 'hello'
+
+            expect @collection.models[0] instanceof @collection.modelClass
+                .toBe true
+
+        it "adding a model with same id doesn't duplicate model in collection", () ->
+            @collection.add @modelA
+            @collection.add @modelA
+
+            expect @collection.size()
+                .toBe 1
+
+        it "defines 'collection' property on added model set to the collection", () ->
+            @collection.add @modelA
+
+            expect @modelA.collection
+                .toBe @collection
+
+        it "when adding a new version of model that's already in collection, merges the two models", ->
+            model = _.cloneDeep @modelA
+
+            model.attributes.additionalProperty = true
+            @collection.add @modelA
+            @collection.add model
+
+            expect @modelA.attributes.additionalProperty
+                .toBe true
+
+        it "adds to the end of collection when atStart arg is falsy", () ->
+            @collection.add @modelA
+            @collection.add @modelB
+
+            expect @collection.models[1]
+                .toBe @modelB
+
+        it "add to the beginning of collection when atStart arg is truthy", () ->
+
+            @collection.add @modelA
+            @collection.add @modelB, yes
+
+            expect @collection.models[0]
+                .toBe @modelB
+
