@@ -172,12 +172,12 @@ describe "Base Collection", () ->
             @collection.add @modelA
             @collection.remove @modelA
 
-            expect @collection.models[@modelA.attributes._id]
+            expect @collection.models[@modelA._getId()]
                 .not.toBeDefined()
 
         it "works for clean models", ->
 
-            delete @modelA.attributes._id
+            delete @modelA._getId()
 
             @collection.add @modelA
 
