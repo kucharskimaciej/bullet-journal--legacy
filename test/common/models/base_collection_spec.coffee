@@ -236,10 +236,60 @@ describe "Base Collection", () ->
                 .toBe @modelB
 
         it "add to the beginning of collection when atStart arg is truthy", () ->
-
             @collection.add @modelA
             @collection.add @modelB, yes
 
             expect @collection.models[0]
                 .toBe @modelB
 
+    describe "#fetch", () ->
+        beforeEach basicSetup
+        beforeEach inject ($injector, $rootScope, $timeout) ->
+            $q = $injector.get '$q'
+
+            @def = $q.defer()
+
+            res =
+                getList: jasmine.createSpy('getList').and.returnValue(@def.promise)
+            @collection.$Resource = res
+
+
+
+
+
+        it "fetches models when collection.isClean is truthy", () ->
+            @def.resolve([])
+            @collection.fetch()
+
+            expect @collection.$Resource.getList
+                .toHaveBeenCalled()
+
+        it "doesn't fetch when collection isn't clean", ->
+            @collection.isClean = no
+            @collection.fetch()
+
+            expect @collection.$Resource.getList
+                .not.toHaveBeenCalled()
+
+        it "fetches when reset: true is passed", ->
+            @def.resolve([])
+            @collection.isClean = no
+            @collection.fetch(reset: yes)
+
+            expect @collection.$Resource.getList
+                .toHaveBeenCalled()
+
+        it "calls #add for each model returned", () ->
+            @def.resolve([{ a: 'a' }, { b: 'b' }])
+            @collection.add = ->
+                console.log("CUCK")
+
+            spyOn(@collection, 'add').and.callThrough()
+
+            @collection.fetch()
+            console.log @collection.add, @collection.add.calls.all()
+            expect @collection.add.calls.count()
+                .toBe 2
+
+        afterEach inject ($rootScope) ->
+            $rootScope.$apply()

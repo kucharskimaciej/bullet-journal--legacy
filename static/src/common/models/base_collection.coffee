@@ -67,6 +67,7 @@ class BaseCollection
 
         if @$Resource and (@isClean or options.reset)
             return @$Resource.getList().then (models) =>
+                console.log models
                 @empty()
                 @add(model) for model in models
                 @isClean = no
