@@ -253,7 +253,8 @@ describe "Base Collection", () ->
                 getList: jasmine.createSpy('getList').and.returnValue(@def.promise)
             @collection.$Resource = res
 
-
+        afterEach inject ($rootScope) ->
+            $rootScope.$apply()
 
 
 
@@ -279,17 +280,41 @@ describe "Base Collection", () ->
             expect @collection.$Resource.getList
                 .toHaveBeenCalled()
 
-        it "calls #add for each model returned", () ->
+        it "calls #add for each model returned", ->
             @def.resolve([{ a: 'a' }, { b: 'b' }])
-            @collection.add = ->
-                console.log("CUCK")
-
-            spyOn(@collection, 'add').and.callThrough()
+            spyOn(@collection, 'add')
 
             @collection.fetch()
-            console.log @collection.add, @collection.add.calls.all()
-            expect @collection.add.calls.count()
-                .toBe 2
 
-        afterEach inject ($rootScope) ->
-            $rootScope.$apply()
+            @def.promise.then =>
+                expect @collection.add.calls.count()
+                    .toBe 2
+
+        it "empties collection when fetching", ->
+            @def.resolve([])
+            spyOn(@collection, 'empty')
+
+            @collection.fetch()
+            @def.promise.then =>
+                expect @collection.empty
+                    .toHaveBeenCalled()
+
+        it "stops being clean after fetch", ->
+            @def.resolve([])
+            @collection.fetch()
+
+            @def.promise.then =>
+                expect @collection.isClean
+                    .toBe no
+
+        it  "returns a promise when fetched", ->
+            @def.resolve []
+
+            expect @collection.fetch().then
+                .toBeDefined()
+
+        it "returns an array of models if not fetching", ->
+            @collection.isClean = false
+
+            expect @collection.fetch()
+                .toBe @collection.models
