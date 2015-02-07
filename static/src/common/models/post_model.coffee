@@ -9,6 +9,8 @@ angular.module 'common.models.post'
             delete post.created_at if operation in ['post', 'put']
             post
 
+        cfg.setRestangularFields(id: '_id')
+
 
     @$get = (Restangular) ->
         Restangular.withConfig configFn

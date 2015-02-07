@@ -136,11 +136,11 @@ describe "Base Collection", () ->
         beforeEach basicSetup
 
         it "throws an error unless passed a model", () ->
-            expect -> @collection.remove()
+            expect => @collection.remove()
                 .toThrow()
 
         it "throws an error if passed object isn't collections modelClass", () ->
-            expect -> @collection.remove({})
+            expect => @collection.remove({})
                 .toThrow()
 
         it "returns false if model is not found in the collection", () ->
@@ -169,6 +169,8 @@ describe "Base Collection", () ->
                 .toBe 1
 
         it "removes quick reference from collection", ->
+            @modelA.attributes.fromServer = yes
+
             @collection.add @modelA
             @collection.remove @modelA
 

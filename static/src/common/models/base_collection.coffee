@@ -25,7 +25,6 @@ class BaseModel
 
     fetch: ->
         $Resource = @_getResource()
-
         if @_getId() and $Resource
             $Resource.one(@_getId()).get().then (res) =>
                 @attributes = res
