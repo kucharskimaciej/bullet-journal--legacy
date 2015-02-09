@@ -25,6 +25,6 @@ app.use express.static('bower_components')
 
 
 app.get '/', allowCrossDomain, (req, res) ->
-  res.render('index')
+  res.render('index', apiUrl: config.api.url)
 
 app.listen app.get('port')

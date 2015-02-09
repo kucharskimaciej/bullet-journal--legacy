@@ -1,7 +1,11 @@
 html(ng-app='app')
     head
+        script.
+            window.api = "#{apiUrl}"
+
         link(rel='stylesheet' href='/dist/application.css')
     body
+
         ui-view
 
         script(src='/dist/libs.js')
