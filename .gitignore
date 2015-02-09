@@ -32,3 +32,4 @@ static/dist
 static/.sass-cache
 # Users Environment Variables
 .lock-wscript
+config.ini
