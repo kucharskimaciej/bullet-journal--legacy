@@ -13,6 +13,8 @@ angular.module('posts')
             vm.post = Posts.new()
 
     vm.submit = (isValid) ->
-        vm.post.save() if isValid
+        if isValid
+            vm.post.save().then ->
+                $state.go('bullet.index')
 
     return
