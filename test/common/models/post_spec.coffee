@@ -113,17 +113,19 @@ describe "Post", ->
         @$httpBackend.flush()
 
 
-    it "deletes created_at attr when POSTing", (done) ->
+    it "deletes created_at attr when POSTing", () ->
         post =
             created_at: new Date
             other_attr: "other"
 
-        @$httpBackend.expectPOST "/posts", (data) ->
-            data = JSON.parse(data)
-            expect data.created_at
-                .not.toBeDefined()
-            done()
-            true
+        @$httpBackend
+            .expectPOST "/posts", (data) ->
+                data = JSON.parse(data)
+                expect data.created_at
+                    .not.toBeDefined()
+
+                true
+            .respond post
 
         @Post.post(post)
 
