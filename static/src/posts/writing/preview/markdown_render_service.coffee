@@ -10,8 +10,7 @@ class MarkdownRenderer
         _originalHeadingFn = @renderer.heading
 
         @renderer.heading = (text, level, raw) ->
-            level = 2 if level is 1
-            _originalHeadingFn.call @, text, level, raw
+            _originalHeadingFn.call @, text, level + 1, raw
 
 
     render: (content) => @marked(content, renderer: @renderer)
