@@ -29,6 +29,5 @@ describe "directive: post-date", ->
             .toBe true
 
     it "should display a year", ->
-        console.log @element.html()
         expect /2015/.test(@element.html())
             .toBe true
