@@ -17,7 +17,8 @@ module.exports = function(config) {
     files: [
       'static/dist/libs.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'static/dist/app.js',
+      'static/src/modules.coffee',
+      'static/src/**/*.coffee',
       'static/dist/templates.js',
       'test/**/*_spec.coffee'
     ],
@@ -31,7 +32,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '**/*.coffee': ['coffee'],
+      'static/src/**/*.coffee': ['coverage'],
+      'test/**/*.coffee': ['coffee'],
       'static/dist/app.js': ['coverage']
     },
 
