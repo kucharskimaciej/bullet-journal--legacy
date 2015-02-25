@@ -1,5 +1,5 @@
 describe "CommonNavigationController", () ->
-    beforeEach module('app')
+    beforeEach module('common.navigation')
     beforeEach inject ($controller, $rootScope) ->
         @controller = $controller 'CommonNavigationController',
             $scope: $rootScope.$new()
