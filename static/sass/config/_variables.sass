@@ -11,6 +11,8 @@ $font-family-base: $font-family-serif
 $font-size-base: $text-size
 $line-height-base: 1.666
 
+$line-height-computed: floor($font-size-base * $line-height-base)
+
 $font-weight-normal: 300
 $font-weight-bold: 400
 $font-weight-bolder: 700
@@ -109,6 +111,13 @@ $input-border-radius-small: 0
 //$border-radius-base: 0
 //$border-radius-large: 0
 //$border-radius-small: 0
+
+// z vars
+$zindex-navbar: 100
+
+// misc
+
+$gutter: 20px
 
 @mixin fixed($top:0, $right: 0, $bottom:0, $left: 0)
   position: fixed
