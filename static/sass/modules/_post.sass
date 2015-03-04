@@ -1,7 +1,7 @@
 .Post
   display: block
 
-  padding: $gutter
+  padding: $gutter 0
 
   position: relative
   overflow: hidden
@@ -10,9 +10,8 @@
   border-bottom: 1px solid rgba($primary, 0.1)
 
 .Post-date
-  float: left
   margin-right: rem(20px)
-  
+
   
 .Post-title
   +textXL
@@ -20,8 +19,17 @@
   text-transform: uppercase
   line-height: 1
 
-  margin: 0 0 rem(30px)
+  margin: 0
   
+.Post-date,
+.Post-title
+  display: inline-block
+  vertical-align: middle
+  margin-bottom: 0
+  
+.Post-header
+  text-align: center
+  margin: $line-height-computed 0
 
 $details-rotation: 30deg
 $details-size: 150px

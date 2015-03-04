@@ -1,6 +1,4 @@
 .Navigation
-
-
   z-index: $zindex-navbar
   -webkit-transform: translate3d(0,0,0) // prevents header blinking
 
@@ -17,7 +15,8 @@
 
   font-family: $navigation-font
 
-
+.Navigation-helper
+  @extend .Page-container
 
 .Navigation-item:not(.btn)
   color: $navigation-link-color
