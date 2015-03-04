@@ -1,0 +1,31 @@
+input, textarea, select
+  display: block
+  width: 100%
+  padding: 0
+
+  background-color: $input-bg
+  border-radius: $input-border-radius
+
+  min-height: rem($input-height)
+  outline: 0
+  resize: none
+
+  +textL
+  line-height: 1
+  font-family: $font-family-sans-serif
+  color: $input-color
+
+  +placeholder-text
+    color: $input-color-placeholder
+
+
+input, textarea
+  border: 0
+  border-bottom: 0
+  box-shadow: 0 1px 0 0 $input-border-focus
+
+  &:focus, &:active
+    box-shadow: 0 $input-border-width 0 0 $secondary
+
+input, select
+  height: rem($input-height)

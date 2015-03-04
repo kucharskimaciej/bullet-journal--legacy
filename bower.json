@@ -33,6 +33,9 @@
   "overrides": {
     "components-font-awesome": {
       "ignore": true
+    },
+    "normalize.css": {
+      "ignore": true
     }
   }
 }

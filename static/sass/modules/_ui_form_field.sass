@@ -7,41 +7,6 @@ $input-height: 34px
   padding: 0
   padding-bottom: $input-border-width
 
-  input, select, textarea
-    display: block
-    width: 100%
-    min-height: rem($input-height)
-    padding: 0
-
-    border: 0
-
-    +textL
-    line-height: 1
-    font-family: $font-family-sans-serif
-    color: white(0.95)
-
-
-    +placeholder-text
-      color: white(0.8)
-
-    background-color: transparent
-    outline: 0
-    resize: none
-
-    //+box-shadow(0 1px 0 0 $secondary)
-    //+transition(box-shadow 0.3s)
-
-
-
-
-
-    &:focus, &:active
-      outline: 0
-      border-color: transparent
-      //+box-shadow(0 $input-border-width 0 0 $secondary)
-
-  input, select
-    height: rem($input-height)
 
 .UiFormField__inline
   display: inline-block
