@@ -3,6 +3,7 @@ $text-size-s: 16px
 $text-size: 18px
 $text-size-l: 32px
 $text-size-xl: 40px
+$text-size-2xl: 90px
 
 $font-family-serif: 'Merriweather', serif
 $font-family-sans-serif: 'Roboto Condensed', sans-serif
@@ -53,6 +54,11 @@ $font-weight-bolder: 700
   font-size: $text-size-xl
   line-height: 1.25
 
+@mixin text2XL
+  +text
+  font-size: $text-size-2xl
+  line-height: 1.1
+
 
 @function rem($size)
   @return #{$size/$font-size-base}rem
@@ -92,6 +98,8 @@ $navigation-bg: $primary
 $navigation-hover-bg: darken($primary, 5%)
 $navigation-active-bg: $primary
 
+$header-height: $navigation-height + 50px
+
 $main-container-width: rem(970px)
 
 
@@ -114,11 +122,14 @@ $input-border-radius-small: 0
 //$border-radius-small: 0
 
 // z vars
-$zindex-navbar: 100
+$zindex-header: 100
+$zindex-navbar: 101
 
 // misc
 
 $gutter: 20px
+
+
 
 @mixin fixed($top:0, $right: 0, $bottom:0, $left: 0)
   position: fixed

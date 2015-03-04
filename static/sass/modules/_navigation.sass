@@ -5,7 +5,7 @@
   -webkit-transform: translate3d(0,0,0) // prevents header blinking
 
   position: fixed
-  top: 0
+  top: $header-height - $navigation-height
   right: 0
   left: 0
 
@@ -17,8 +17,6 @@
 
   font-family: $navigation-font
 
-  background-color: $navigation-bg
-  //+box-shadow(2px 0 0 0 rgba($secondary, 0.5))
 
 
 .Navigation-item:not(.btn)
