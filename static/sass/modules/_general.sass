@@ -2,6 +2,17 @@ body
   padding-top: $navigation-height + $navigation-offset
   background-color: $body-bg
   color: $primary
+  position: relative
+
+  &:before
+    +fixed(0, 0, 0, 0)
+    content: ""
+    opacity: .13
+    background-image: image-url('bg2.png')
+    -webkit-background-size: cover
+    background-size: cover
+    background-position: center center
+
 
 html
   font-size: $font-size-base
