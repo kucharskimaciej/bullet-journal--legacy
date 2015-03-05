@@ -18,24 +18,14 @@
 .Navigation-helper
   @extend .Page-container
 
-.Navigation-item:not(.btn)
-  color: $navigation-link-color
+.Navigation-item
+  color: $primary
   padding: rem(5px) 0
 
   &:hover,
   &:active,
   &:focus
     text-decoration: none
-
-  &:not(.active):hover
-    color: $navigation-hover-color
-    border-bottom: 1px solid white(0.15)
-
-  &:active,
-  &:focus,
-  &.active
-    color: $navigation-active-color
-    background-color: $navigation-active-bg
 
 .Navigation-item
 

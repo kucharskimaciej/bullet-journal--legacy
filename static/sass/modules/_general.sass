@@ -19,3 +19,17 @@ html
 
 *, *:before, *:after
   box-sizing: border-box
+
+[ng-click]
+  cursor: pointer
+
+a
+  color: $secondary
+  text-decoration: none
+
+  &:hover,
+  &:active,
+  &:focus,
+  &.active
+    text-decoration: underline
+    color: lighten($secondary, 20%)
