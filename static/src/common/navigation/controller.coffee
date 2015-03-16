@@ -6,9 +6,9 @@ angular.module('common.navigation')
         name: 'Add Post',
         icon: 'plus'
         sref: 'bullet.writing.new'
+        primary: yes
       ,
         name: 'Home',
-        icon: 'bars'
         sref: 'bullet.index'
       ]
 
