@@ -1,4 +1,4 @@
-span.UiFormField(ng-switch='' on='type')
+span.UiFormField(ng-switch='' on='type' ng-form="" name="{{ name }}")
     div.field(ng-switch-when='text')
         input(type='{{ type }}' ng-model="$parent.model" placeholder="{{ label }}" ui-form-validation='{{ validates }}' ng-trim='false')
 

@@ -3,8 +3,9 @@ angular.module 'ui.form'
     scope:
         label: '@?'
         type: '@'
+        name: '@'
         model: '='
-        validates: '@'
+        validates: '@?'
     restrict: 'E'
     require: '^ngForm'
     replace: yes
