@@ -1,6 +1,8 @@
 class PostWritingPreviewController
 
-    constructor: (@$scope, @MarkdownRenderer) ->
+    constructor: ($scope, MarkdownRenderer) ->
+        @$scope = $scope
+        @MarkdownRenderer = MarkdownRenderer
         @post = $scope.model
         @rendered = ""
 
@@ -18,6 +20,7 @@ class PostWritingPreviewController
 
 
 angular.module 'posts'
+.controller 'PostWritingPreviewController', PostWritingPreviewController
 .directive 'postWritingPreview', ->
     scope:
         model: '='
@@ -26,5 +29,5 @@ angular.module 'posts'
     controller: 'PostWritingPreviewController'
     controllerAs: 'preview'
 
-.controller 'PostWritingPreviewController', PostWritingPreviewController
+
 
