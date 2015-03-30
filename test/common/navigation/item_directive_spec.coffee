@@ -26,24 +26,9 @@ describe "directive: navigationItem", () ->
       expect @dir.compiled.attr('ui-sref')
         .toBe @config.sref
 
-    it "renders with correct icon", () ->
-      expect new RegExp("fa-#{@config.icon}").test @dir.compiled.html()
-        .toBe true
 
     it "renders with correct item name", () ->
       expect new RegExp(@config.name).test @dir.compiled.html()
-        .toBe true
-    
-  
-  describe "custom classes", () ->
-
-    beforeEach setup
-    beforeEach ->
-      @config = name: 'Item name', icon: 'item', sref: 'item.state', primary: true
-      @dir = @getDirective @config
-
-    it "renders with correct button classes depending on primary field in config", () ->
-      expect /btn-success/.test @dir.compiled.attr('class')
         .toBe true
 
   describe "actions", () ->
