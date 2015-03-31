@@ -14,7 +14,6 @@ class PostWritingPreviewController
     toggle: -> @isOpen = not @isOpen
 
     render: (newVal, oldVal) =>
-        console.log 'calling render with', newVal, oldVal, @$scope.model
         if newVal isnt oldVal
             @rendered = @MarkdownRenderer.render(newVal) or ""
 
