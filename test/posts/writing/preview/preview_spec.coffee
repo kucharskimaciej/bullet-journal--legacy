@@ -61,6 +61,13 @@ describe "PostWritingPreviewController", ->
             expect @controller.rendered
                 .toBe 'result'
 
+        it 'assigns empty string to rendered prop if nothing is returned from marked render', ->
+            @MarkdownMock.render = jasmine.createSpy().and.returnValue(undefined)
+            @controller.render('', 'old')
+
+            expect @controller.rendered
+                .toBe ''
+
         it 'gets called when model.attributes.original_content changes', ->
             @controller.$scope.model.attributes.original_content = 'newContent'
             @controller.$scope.$digest()
