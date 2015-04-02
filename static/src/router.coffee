@@ -25,10 +25,6 @@ app.config ($stateProvider, $urlRouterProvider) ->
       url: '/posts',
       abstract: yes,
       views:
-        'navigation':
-          templateUrl: 'posts/writing/navigation/navigation.tpl.html'
-          controller: 'PostsWritingNavigationController as ctrl'
-
         'main':
           templateUrl: 'posts/writing/layout.tpl.html'
           controller: 'PostsWritingController as ctrl'

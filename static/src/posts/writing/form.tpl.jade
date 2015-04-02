@@ -1,6 +1,6 @@
 .PostEditor-area
     form.UiForm(   name='postForm'
-                    ng-submit='ctrl.onSubmit(postForm.$valid, ctrl.vm.post.attributes)'
+                    ng-submit='ctrl.submit(postForm.$valid)'
                     novalidate )
         header.PostEditor-header
             h1.PostEditor-title
@@ -17,3 +17,5 @@
                 name='content'
                 label='Journal entry'
                 validates="{ 'required': true }")
+
+    navigation-bar.Navigation(items='::ctrl.navigationItems')
