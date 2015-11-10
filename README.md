@@ -1,4 +1,5 @@
-MVP type of product
+# Moved
+This repository was merged into https://github.com/kucharskimaciej/bullet-journal-api
 
 # Bullet journal
 
